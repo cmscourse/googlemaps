@@ -60,8 +60,35 @@ padding: 0 4px;
 
 
           <div id="map"></div>
-<ul><li><a id=downtown href=/>Pace Plaza</a></li><li><a id=midtown href=/>Pace Midtown</a></li></ul>
+<ul><li><a id=downtown href=/>Pace Plaza</a></li>
+<li><a id=midtown href=/>Pace Midtown</a></li>
+<li><a id=add-markers href=/>add multiple markers</a></li>
+</ul>
 <script>
+ window.addAllMarkers = function(latLngObj){
+    dtLat =40.759121
+  , dtLng =-73.979518
+    map = new GMaps({
+      div:'#map'
+    , lat:dtLat
+    , lng:dtLng
+    })
+    $(latLngObj).each(function(){
+      console.log($(this)[0].lat)
+      console.log($(this)[0].lng)
+      map.addMarker({
+        lat:$(this)[0].lat
+      , lng: $(this)[0].lng
+      })
+    })
+  }
+jsonObj = [{"lat":40.759121,"lng":-73.979518},{"lat":40.755237,"lng":-73.978678}]
+$('body').on('click','#add-markers', function(e){
+  e.preventDefault()
+  addAllMarkers(jsonObj)
+})
+
+
   var centerDowntown = function(){
   dtLat = 40.711389
 , dtLng = -74.005278
