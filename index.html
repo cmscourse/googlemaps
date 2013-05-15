@@ -38,7 +38,22 @@
 		, body{
 			height:100%;
 		}
-	#map{height:90%;width:60%}
+	#map{height:90%;width:100%}
+  .overlay{
+display: block;
+text-align: center;
+color: #fff;
+font-size: 60px;
+line-height: 80px;
+opacity: 0.8;
+background: #4477aa;
+border: solid 3px #336699;
+border-radius: 4px;
+box-shadow: 2px 2px 10px #333;
+text-shadow: 1px 1px 1px #666;
+padding: 0 4px;
+
+}
 	</style>
 </head>
 <body>
@@ -50,19 +65,35 @@
   var centerDowntown = function(){
   dtLat = 40.711389
 , dtLng = -74.005278
-  new GMaps({
+  map = new GMaps({
     div:'#map'
   , lat:dtLat
   , lng:dtLng
   })
+  map.addMarker({
+    lat:dtLat
+  , lng:dtLng
+  , infoWindow:{
+    content: '<strong>Place Plaza</strong>'
+    }
+  })
+  map.drawOverlay({
+    lat:dtLat
+  , lng:dtLng
+  , content: '<div class=overlay>Pace Plaza</div>'
+  })
 }
 var centerMidtown = function(){
-  dtLat = 40.755237
-, dtLng = -73.978678
-  new GMaps({
+  mtLat = 40.755237
+, mtLng = -73.978678
+  var map = new GMaps({
     div:'#map'
-  , lat:dtLat
-  , lng:dtLng
+  , lat:mtLat
+  , lng:mtLng
+  })
+  map.addMarker({
+    lat:mtLat
+  , lng:mtLng
   })
 }
 
