@@ -31,19 +31,50 @@
           }
         })
 });
+
   </script>
   <style>
 	html
 		, body{
 			height:100%;
 		}
-	#map{height:100%}
+	#map{height:90%;width:60%}
 	</style>
 </head>
 <body>
 
 
           <div id="map"></div>
+<ul><li><a id=downtown href=/>Pace Plaza</a></li><li><a id=midtown href=/>Pace Midtown</a></li></ul>
+<script>
+  var centerDowntown = function(){
+  dtLat = 40.711389
+, dtLng = -74.005278
+  new GMaps({
+    div:'#map'
+  , lat:dtLat
+  , lng:dtLng
+  })
+}
+var centerMidtown = function(){
+  dtLat = 40.755237
+, dtLng = -73.978678
+  new GMaps({
+    div:'#map'
+  , lat:dtLat
+  , lng:dtLng
+  })
+}
 
+
+$('#downtown').click(function(e){
+  e.preventDefault()
+  centerDowntown()
+})
+$('#midtown').click(function(e){
+  e.preventDefault()
+  centerMidtown()
+})
+</script>
 </body>
 </html>
