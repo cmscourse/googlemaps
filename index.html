@@ -17,10 +17,20 @@
       prettyPrint();
       map = new GMaps({
         div: '#map',
-        lat: 40.711389,
-        lng: -74.005278
+        lat: 40.755237,
+        lng:-73.978678
       });
-    });
+      var paceLat = 40.755237
+        , paceLng = -73.978678
+        map.addMarker({
+            lat:paceLat
+          , lng: paceLng
+          , title: 'Pace Plaza'
+          , infoWindow:{
+            content: '<a href="http://bit.ly/11NFFge"><img alt="" src="http://www.pace.edu/sites/pace.edu/files/homeslides/Commencement2013_LIVE.jpg" style="width: 400px; "></a><strong>CMS course <a href=//github.com/cmscourse/>projects</a></strong>'
+          }
+        })
+});
   </script>
   <style>
 	html
@@ -31,9 +41,9 @@
 	</style>
 </head>
 <body>
- 
-  
+
+
           <div id="map"></div>
-       
+
 </body>
 </html>
